@@ -1,0 +1,6 @@
+chatgpt:
+  api-key: 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
+  max-tokens: 1000
+springdoc:
+  swagger-ui:
+    doc-expansion: none
