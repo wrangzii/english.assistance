@@ -1,4 +1,4 @@
-package io.github.wrangz.chatgpt.service;
+package io.github.chatgpt.service;
 
 import io.github.chatgpt.dto.ChatRequest;
 import io.github.wrangz.chatgpt.dto.ChatResponse;

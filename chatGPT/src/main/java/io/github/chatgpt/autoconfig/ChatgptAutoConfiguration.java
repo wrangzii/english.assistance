@@ -1,8 +1,8 @@
 package io.github.chatgpt.autoconfig;
 
 import io.github.chatgpt.property.ChatgptProperties;
+import io.github.chatgpt.service.ChatgptService;
 import io.github.chatgpt.service.impl.DefaultChatgptService;
-import io.github.wrangz.chatgpt.service.ChatgptService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

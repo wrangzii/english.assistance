@@ -1,6 +1,7 @@
 package com.ielts.assistance.config;
 
 import io.github.chatgpt.property.ChatgptProperties;
+import io.github.chatgpt.service.ChatgptService;
 import io.github.chatgpt.service.impl.DefaultChatgptService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -20,8 +21,8 @@ public class ChatGPTAutoConfiguration {
     }
 
     @Bean
-    @ConditionalOnMissingBean(io.github.wrangz.chatgpt.service.ChatgptService.class)
-    public io.github.wrangz.chatgpt.service.ChatgptService chatgptService(){
+    @ConditionalOnMissingBean(ChatgptService.class)
+    public ChatgptService chatgptService(){
         return new DefaultChatgptService(chatgptProperties);
     }
 }

@@ -1,6 +1,7 @@
 package com.ielts.assistance.controllers;
 
 import com.ielts.assistance.model.ResponseObject;
+import io.github.chatgpt.service.ChatgptService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @CrossOrigin
 public class ChatGPTController {
-    private final io.github.wrangz.chatgpt.service.ChatgptService chatgptService;
+    private final ChatgptService chatgptService;
 
     @GetMapping("/send")
     public ResponseEntity<ResponseObject> send(@RequestParam @Validated String message,
