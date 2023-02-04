@@ -1,5 +1,5 @@
 chatgpt:
-  api-key: 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
+  api-key: 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
   max-tokens: 1000
 springdoc:
   swagger-ui:
