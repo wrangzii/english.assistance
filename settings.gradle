@@ -1,1 +1,3 @@
 rootProject.name = 'assistance'
+include 'app'
+include 'chatGPT'
