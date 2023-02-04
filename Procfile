@@ -1,1 +1,1 @@
-web: java -cp target/classes/:target/dependency/* com.ielts.assistance.AssistanceApplication
+web: java -Dspring.profiles.active=default -Dserver.port=$PORT -jar target/*.jar
