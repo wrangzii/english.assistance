@@ -21,10 +21,8 @@ public class ChatGPTController {
     @GetMapping("/send")
     public ResponseEntity<ResponseObject> send(@RequestParam @Validated String message,
                                                @RequestParam String token) {
-        System.setProperty("TOKEN_API_KEY", token);
-        System.out.println(System.getenv("TOKEN_API_KEY"));
         try {
-            String responseMessage = chatgptService.sendMessage(message);
+            String responseMessage = chatgptService.sendMessage(message, token);
             return ResponseEntity.ok(new ResponseObject(responseMessage.trim()));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(new ResponseObject(e.getMessage()));
