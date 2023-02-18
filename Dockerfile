@@ -1,7 +1,7 @@
 #Build stage
 
 FROM gradle:latest AS BUILD
-WORKDIR /usr/app/
+WORKDIR /usr/app/app
 COPY . .
 RUN gradle build || return 0
 COPY . .
