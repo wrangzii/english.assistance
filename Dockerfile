@@ -3,9 +3,7 @@
 FROM gradle:latest AS BUILD
 WORKDIR /usr/app/app
 COPY . .
-RUN gradle build || return 0
-COPY . .
-RUN gradle clean build
+RUN gradle build
 # Package stage
 
 FROM adoptopenjdk/openjdk11:alpine-jre
