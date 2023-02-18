@@ -6,7 +6,7 @@ COPY . .
 RUN gradle build
 # Package stage
 
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM adoptopenjdk/openjdk17:alpine-jre
 ENV JAR_NAME=app-0.0.1-SNAPSHOT.jar
 ENV APP_HOME=/usr/app/
 WORKDIR $APP_HOME
