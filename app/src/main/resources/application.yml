@@ -1,5 +1,5 @@
 chatgpt:
-  api-key: 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
+  token: '${CHATGPT_TOKEN}'
   max-tokens: 1000
 springdoc:
   swagger-ui:

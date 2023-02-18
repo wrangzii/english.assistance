@@ -5,7 +5,7 @@ import io.github.wrangz.chatgpt.dto.ChatResponse;
 
 public interface ChatgptService {
 
-    String sendMessage(String message, String token);
+    String sendMessage(String message);
 
     // ChatResponse sendChatRequest(ChatRequest request);
 

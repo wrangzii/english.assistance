@@ -6,6 +6,7 @@ import io.github.chatgpt.property.ChatgptProperties;
 import io.github.chatgpt.service.ChatgptService;
 import io.github.wrangz.chatgpt.dto.ChatResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -26,6 +27,8 @@ public class DefaultChatgptService implements ChatgptService {
     private final String URL = "https://api.openai.com/v1/completions";
 
     private final String AUTHORIZATION;
+    @Value("${chatgpt.token}")
+    private String token;
 
     public DefaultChatgptService(ChatgptProperties chatgptProperties) {
         this.chatgptProperties = chatgptProperties;
@@ -33,11 +36,11 @@ public class DefaultChatgptService implements ChatgptService {
     }
 
     @Override
-    public String sendMessage(String message, String token) {
+    public String sendMessage(String message) {
 //        refreshToken(token);
         ChatRequest chatRequest = new ChatRequest(chatgptProperties.getModel(), message,
                 chatgptProperties.getMaxTokens(), chatgptProperties.getTemperature(), chatgptProperties.getTopP());
-        ChatResponse chatResponse = this.getResponse(this.buildHttpEntity(chatRequest, token));
+        ChatResponse chatResponse = this.getResponse(this.buildHttpEntity(chatRequest, chatgptProperties.getApiKey()));
         try {
             return chatResponse.getChoices().get(0).getText();
         } catch (Exception e) {
