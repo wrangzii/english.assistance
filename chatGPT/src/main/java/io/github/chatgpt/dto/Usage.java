@@ -1,4 +1,4 @@
-package io.github.wrangz.chatgpt.dto;
+package io.github.chatgpt.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

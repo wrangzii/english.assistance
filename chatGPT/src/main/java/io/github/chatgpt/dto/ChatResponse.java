@@ -1,6 +1,5 @@
-package io.github.wrangz.chatgpt.dto;
+package io.github.chatgpt.dto;
 
-import io.github.chatgpt.dto.Choice;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -13,6 +12,6 @@ public class ChatResponse {
     private LocalDate created;
     private String model;
     private List<Choice> choices;
-    private io.github.wrangz.chatgpt.dto.Usage usage;
+    private Usage usage;
 
 }

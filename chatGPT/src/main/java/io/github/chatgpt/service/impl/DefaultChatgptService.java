@@ -1,10 +1,10 @@
 package io.github.chatgpt.service.impl;
 
 import io.github.chatgpt.dto.ChatRequest;
+import io.github.chatgpt.dto.ChatResponse;
 import io.github.chatgpt.exception.ChatgptException;
 import io.github.chatgpt.property.ChatgptProperties;
 import io.github.chatgpt.service.ChatgptService;
-import io.github.wrangz.chatgpt.dto.ChatResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
