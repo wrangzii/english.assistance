@@ -3,6 +3,8 @@ package com.ielts.assistance.controllers;
 import com.ielts.assistance.model.ChatGptRequest;
 import com.ielts.assistance.model.ResponseObject;
 import io.github.chatgpt.service.ChatgptService;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class ChatGPTController {
     private final ChatgptService chatgptService;
-    @GetMapping("/send")
+    @GetMapping(path = "/send", consumes = "text/plain")
     public ResponseEntity<ResponseObject> send(@RequestParam @Validated String message) {
         try {
             String responseMessage = chatgptService.sendMessage(message);
@@ -26,10 +28,10 @@ public class ChatGPTController {
         }
     }
 
-    @PostMapping("/ielts_essay_evaluation")
-    public ResponseEntity<ResponseObject> ieltsScoring(@RequestBody @Validated ChatGptRequest request) {
+    @PostMapping(path ="/ielts_essay_evaluation", consumes = "text/plain")
+    public ResponseEntity<ResponseObject> ieltsScoring(@RequestBody @Schema(example = "Please input your essay") String request) {
         try {
-            String ieltsScoringRequest = String.format("Give me 4 criteria band score number of the essay can get in IELTS \"%s\"",  request.getMessage());
+            String ieltsScoringRequest = String.format("Give me 4 criteria band score number of the essay can get in IELTS \"%s\"",  request);
             String responseMessage = chatgptService.sendMessage(ieltsScoringRequest);
             return ResponseEntity.ok(new ResponseObject(responseMessage.trim()));
         } catch (Exception e) {
