@@ -1,4 +1,4 @@
-package com.ielts.assistance.model;
+package com.ielts.assistance.payload.request;
 
 import lombok.Data;
 

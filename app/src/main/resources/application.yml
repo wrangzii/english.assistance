@@ -4,3 +4,44 @@ chatgpt:
 springdoc:
   swagger-ui:
     doc-expansion: none
+spring:
+  flyway:
+    locations: classpath:db/migration
+    enabled: true
+    validate-on-migrate: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  datasource:
+    initialization-mode : always
+    url: jdbc:postgresql://dpg-cfp1qnqrrk0fd9r3cj1g-a.singapore-postgres.render.com:5432/ielts_assisstance_system?username=${DB_USERNAME}&password=${DB_PASSWORD}&trustServerCertificate=true&useUnicode=true&characterEncoding=UTF-8
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  main:
+    allow-bean-definition-overriding: true
+  mail:
+    host: smtp.gmail.com
+    username: duynh120600@gmail.com
+    password: duyduy07
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+project:
+  web:
+    jwtSecret: projectWebSecretKey
+    jwtExpirationMs: 9000000
